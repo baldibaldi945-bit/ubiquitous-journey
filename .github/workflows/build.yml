@@ -39,7 +39,8 @@ jobs:
       - name: Show errors
         if: failure()
         working-directory: ${{ env.PROJECT_DIR }}
-        run: grep -E "^e: |What went wrong|Execution failed|error:" -A2 build.log | head -60
+        run: |
+          grep -E "^e: |What went wrong|Execution failed|error:" -A2 build.log | head -60
 
       - uses: actions/upload-artifact@v4
         with:
